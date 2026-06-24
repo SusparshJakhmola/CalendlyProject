@@ -12,6 +12,6 @@ export async function findById(req:Request, res:Response){
     res.json(response);
 }
 
-export async function createUser(req:Request, res:Response){
+export async function createUser(_req:Request, res:Response){
     res.json({});
 }
