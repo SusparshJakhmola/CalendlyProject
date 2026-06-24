@@ -1,6 +1,7 @@
 import  express,{Express}  from "express";
 import { userRouter } from "./routers/user.router.js";
 import { errorHandler } from "./middlewares/error-handler.js";
+import { routeNotFound } from "./middlewares/route-not-found.js";
 
 const app: Express = express();
 
@@ -18,6 +19,6 @@ app.get('/health', (_req, res) => {
 });
 //express router based routes
 app.use('/api/users',userRouter);
-
+app.use(routeNotFound);//if no route is matched then this middleware will be called
 app.use(errorHandler);
 export { app };
