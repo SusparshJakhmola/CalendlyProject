@@ -11,6 +11,7 @@ export function errorHandler(_err:Error, _req:Request, res:Response, _next:NextF
             body.details=_err.details;
         }
         res.status(_err.statusCode).json(body);
+        return;
     }
     console.error('[error]', _err);
     const body :Record<string, unknown> = {
